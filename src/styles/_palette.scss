@@ -1,0 +1,34 @@
+// Change these values to retheme both the interface and the Three.js field.
+$plum: #21142d;
+$plum-deep: #1b1126;
+$plum-soft: #352046;
+$royal: #67418c;
+$lavender: #d5b5fa;
+$lavender-bright: #ead9ff;
+$lavender-muted: #c4adcf;
+$white: #fff;
+$paper: #fffefd;
+$wash: #f6f2f9;
+$ink: #271c2e;
+$body: #554c5e;
+$line: #dfd7e5;
+$light-line: #594664;
+
+@mixin tokens {
+  --plum: #{$plum};
+  --plum-deep: #{$plum-deep};
+  --plum-soft: #{$plum-soft};
+  --accent: #{$royal};
+  --lavender: #{$lavender};
+  --light: #{$lavender-bright};
+  --muted-light: #{$lavender-muted};
+  --white: #{$white};
+  --paper: #{$paper};
+  --wash: #{$wash};
+  --ink: #{$ink};
+  --body: #{$body};
+  --line: #{$line};
+  --light-line: #{$light-line};
+  --particle: #{$lavender};
+  --particle-light: #{$lavender-bright};
+}

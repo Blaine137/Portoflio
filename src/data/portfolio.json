@@ -1,0 +1,101 @@
+{
+  "profile": {
+    "name": "Blaine Young",
+    "firstName": "Blaine",
+    "lastName": "Young",
+    "role": "Software engineer",
+    "location": "Atlanta, Georgia",
+    "intro": "I build search experiences and content platforms with Adobe Experience Manager and full-stack JavaScript.",
+    "email": "blaine.young3553@gmail.com"
+  },
+  "navigation": [
+    {
+      "label": "About",
+      "href": "/about/"
+    },
+    {
+      "label": "Projects",
+      "href": "/projects/"
+    },
+    {
+      "label": "Résumé",
+      "href": "/resume/"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact/"
+    }
+  ],
+  "about": {
+    "label": "About me",
+    "heading": "A little about me.",
+    "paragraphs": ["I’m a practical problem solver who enjoys making complicated things easier to understand and manage. I’m curious about why things go wrong and how they affect the people dealing with them. My strengths are asking clear questions, breaking a challenge into manageable pieces, and figuring out which change would help the most. I care about solutions that make everyday life a little easier."]
+  },
+  "work": {
+    "label": "Projects",
+    "heading": "Selected work.",
+    "description": "A few of the websites I've worked on. Take a look around.",
+    "projects": [
+      {
+        "id": "mastercard",
+        "category": "Financial services",
+        "title": "Mastercard",
+        "description": "Consumers can explore cards and benefits, while businesses can find tools for accepting payments, moving money, and preventing fraud.",
+        "url": "https://www.mastercard.com/us/en.html",
+        "domain": "mastercard.com"
+      },
+      {
+        "id": "unc-health",
+        "category": "Healthcare",
+        "title": "UNC Health",
+        "description": "Patients across North Carolina can find a primary care doctor or specialist, check urgent care wait times, and explore same-day virtual visits.",
+        "url": "https://www.unchealth.org/home",
+        "domain": "unchealth.org"
+      },
+      {
+        "id": "credit-one",
+        "category": "Financial services",
+        "title": "Credit One Bank",
+        "description": "Visitors can explore cash back cards and options for rebuilding credit, check whether they prequalify, and respond to a mailed offer.",
+        "url": "https://www.creditonebank.com/",
+        "domain": "creditonebank.com"
+      },
+      {
+        "id": "jefferson-health",
+        "category": "Healthcare",
+        "title": "Jefferson Health",
+        "description": "Patients can book appointments online, connect with a clinician by video, and use MyJeffersonHealth to schedule follow-up care.",
+        "url": "https://www.jeffersonhealth.org/home",
+        "domain": "jeffersonhealth.org"
+      },
+      {
+        "id": "rwjf",
+        "category": "Philanthropy",
+        "title": "Robert Wood Johnson Foundation",
+        "description": "Community organizations can find open grants, explore health equity research, and read how grantees are shaping local health policy.",
+        "url": "https://www.rwjf.org/en/robert-wood-johnson-foundation.html",
+        "domain": "rwjf.org"
+      }
+    ]
+  },
+  "contact": {
+    "label": "Get in touch",
+    "heading": "Let’s talk.",
+    "description": "Have an engineering role, a project, or a problem you’re working through? I’d love to hear about it.",
+    "profiles": [
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/blaineyoung137/"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/Blaine137"
+      }
+    ]
+  },
+  "resume": {
+    "title": "Résumé",
+    "file": "/BlaineYoungResume2026.pdf",
+    "description": "Read my résumé below, or open the PDF to view and print the original document."
+  }
+}
