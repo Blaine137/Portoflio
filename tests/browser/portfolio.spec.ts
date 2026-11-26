@@ -14,10 +14,13 @@ async function checkReflow(page: Page) {
     content: document.documentElement.scrollWidth,
     main: document.querySelector('main')!.getBoundingClientRect().bottom,
     footer: document.querySelector('footer')!.getBoundingClientRect().top,
+    footerBottom: document.querySelector('footer')!.getBoundingClientRect().bottom,
+    viewportHeight: window.innerHeight,
     heading: document.querySelector('h1')!.getBoundingClientRect().bottom,
   }));
   expect(layout.content, 'Horizontal overflow').toBeLessThanOrEqual(layout.width + 1);
   expect(layout.footer, 'Footer overlaps main').toBeGreaterThanOrEqual(layout.main - 1);
+  expect(layout.footerBottom, 'Footer leaves a gap below the viewport').toBeGreaterThanOrEqual(layout.viewportHeight - 1);
   expect(layout.heading, 'Heading escapes main').toBeLessThanOrEqual(layout.main + 1);
 }
 async function checkHomeViewport(page: Page) {

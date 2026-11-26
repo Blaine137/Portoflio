@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { Header } from '../components/Header';
 import { portfolio } from '../lib/portfolio';
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   description: 'Blaine Young is an Atlanta software engineer who builds search experiences and content platforms with Adobe Experience Manager and full-stack JavaScript.',
   icons: { icon: '/mark.svg' },
 };
+
+export const viewport: Viewport = { viewportFit: 'cover' };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
