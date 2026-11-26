@@ -1,7 +1,4 @@
-import type { Viewport } from 'next';
 import { Hero } from '../components/HomeSections';
-
-export const viewport: Viewport = { viewportFit: 'cover' };
 
 export default function HomePage() {
   return (
