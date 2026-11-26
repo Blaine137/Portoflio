@@ -930,11 +930,24 @@ main {
 }
 
 // Fill the viewport while allowing content to grow with text enlargement.
+html:has(.home-page) {
+  background: var(--plum-deep);
+}
+
 body:has(.home-page) {
   min-height: 100svh;
-  height: 100dvh;
+  min-height: 100dvh;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
+  background: var(--plum-deep);
+}
+
+body:has(.home-page) .header {
+  padding-top: env(safe-area-inset-top);
+}
+
+body:has(.home-page) .footer {
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .home-page {
