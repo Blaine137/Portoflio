@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
 import type { ParticleVariant } from '../lib/particle-art';
 import type { startParticleScene } from '../lib/particle-scene';
 import { startWorkerScene } from '../lib/particle-worker-client';
@@ -84,19 +83,16 @@ export function ParticleField({ variant = 'ribbon' }: { variant?: ParticleVarian
         <div className="particle-mask" />
         <canvas ref={canvas} />
       </div>
-      {active &&
-        createPortal(
-          <button
-            type="button"
-            className="motion-control"
-            onClick={toggle}
-            aria-label={paused ? 'Resume animation' : 'Pause animation'}
-          >
-            <Icon name={paused ? 'play' : 'pause'} />
-            <span>{paused ? 'Resume animation' : 'Pause animation'}</span>
-          </button>,
-          document.getElementById('motion-controls')!,
-        )}
+      {active && (
+        <button
+          type="button"
+          className="motion-control"
+          onClick={toggle}
+        >
+          <Icon name={paused ? 'play' : 'pause'} />
+          {paused ? 'Resume animation' : 'Pause animation'}
+        </button>
+      )}
     </div>
   );
 }

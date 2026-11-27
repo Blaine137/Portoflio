@@ -1,3 +1,4 @@
+import { PageMain } from '../../components/PageMain';
 import type { Metadata } from 'next';
 import { RouteHero } from '../../components/RouteHero';
 import { portfolio } from '../../lib/portfolio';
@@ -11,11 +12,7 @@ export default function AboutPage() {
   const { about } = portfolio;
 
   return (
-    <main
-      id="main-content"
-      className="about-page"
-      tabIndex={-1}
-    >
+    <PageMain className="about-page">
       <RouteHero
         label={about.label}
         title={about.heading}
@@ -37,6 +34,6 @@ export default function AboutPage() {
           </div>
         </div>
       </RouteHero>
-    </main>
+    </PageMain>
   );
 }

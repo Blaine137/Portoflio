@@ -1,0 +1,23 @@
+.email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  color: var(--lavender);
+  margin-top: 1.6rem;
+}
+
+.profile-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  gap: 1.3rem;
+  margin-top: 0.75rem;
+}
+.profile-links a {
+  display: inline-block;
+  padding: 0.3rem 0;
+}

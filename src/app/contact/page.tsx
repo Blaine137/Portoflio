@@ -1,3 +1,4 @@
+import { PageMain } from '../../components/PageMain';
 import type { Metadata } from 'next';
 import { Contact } from '../../components/Contact';
 
@@ -8,12 +9,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main
-      id="main-content"
-      className="contact-page"
-      tabIndex={-1}
-    >
+    <PageMain className="contact-page">
       <Contact />
-    </main>
+    </PageMain>
   );
 }

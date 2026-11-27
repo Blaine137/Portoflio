@@ -1,10 +1,7 @@
+import { PageMain } from '../components/PageMain';
 export default function NotFound() {
   return (
-    <main
-      id="main-content"
-      tabIndex={-1}
-      className="shell missing"
-    >
+    <PageMain className="shell missing">
       <h1>Page not found</h1>
       <a
         className="text-link"
@@ -12,6 +9,6 @@ export default function NotFound() {
       >
         Return to the portfolio
       </a>
-    </main>
+    </PageMain>
   );
 }

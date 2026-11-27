@@ -29,19 +29,11 @@ const paths = {
       <path d="m4 12 8 4.5 8-4.5M4 16l8 4.5 8-4.5" />
     </>
   ),
-  pause: (
-    <>
-      <path d="M9 5v14M15 5v14" />
-    </>
-  ),
+  pause: <path d="M9 5v14M15 5v14" />,
   play: <path d="m8 5 10 7-10 7Z" />,
   menu: <path d="M3 6h18M3 12h18M3 18h18" />,
   close: <path d="m5 5 14 14M19 5 5 19" />,
-  code: (
-    <>
-      <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 20" />
-    </>
-  ),
+  code: <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 20" />,
   print: (
     <>
       <path d="M7 8V3h10v5M7 17H4V9h16v8h-3" />

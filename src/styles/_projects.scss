@@ -1,0 +1,91 @@
+.work-section {
+  padding-block: clamp(4.5rem, 7vw, 7rem);
+  background: var(--wash);
+}
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.4rem, 3vw, 2.8rem);
+}
+.project {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0.65rem;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+.project-art {
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.55rem 1.8rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--plum-soft);
+  color: var(--white);
+}
+.project-art-pattern {
+  position: absolute;
+  z-index: -1;
+  inset: -15%;
+  pointer-events: none;
+  background: repeating-radial-gradient(
+    ellipse at 82% 85%,
+    transparent 0 8px,
+    color-mix(in srgb, var(--lavender) 38%, transparent) 9px,
+    transparent 10px 17px
+  );
+  mask-image: linear-gradient(105deg, transparent 22%, black);
+  transform: rotate(-12deg);
+}
+.unc-health,
+.jefferson-health {
+  background: var(--light);
+  color: var(--plum-deep);
+}
+
+.project-domain {
+  font: 400 clamp(1.6rem, 3vw, 2.3rem)/1.15 var(--serif);
+  overflow-wrap: anywhere;
+}
+.rwjf {
+  background: var(--plum);
+}
+.credit-one .project-art-pattern {
+  transform: rotate(28deg);
+}
+
+.project-body {
+  padding: clamp(1.35rem, 2.5vw, 2.4rem);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.project-company {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+.project h2 {
+  font: 400 clamp(1.95rem, 2.7vw, 2.7rem)/1.08 var(--serif);
+  letter-spacing: -0.025em;
+  margin: 0.6rem 0 1rem;
+}
+.project-body > p:not(.project-company) {
+  color: var(--body);
+}
+.project-body .text-link {
+  margin-top: auto;
+  padding-top: 1.3rem;
+}
+
+@media (max-width: 42rem) {
+  .projects {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

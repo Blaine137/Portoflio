@@ -1,0 +1,233 @@
+.hero {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 75% 48%, var(--plum-soft), transparent 55%),
+    var(--plum-deep);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.23;
+  background-image: radial-gradient(circle, var(--light-line) 0.8px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(100deg, transparent 12%, black 65%);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+  min-height: calc(100svh - 9.5rem);
+  padding-block: 2rem 3rem;
+}
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  padding-block: 1rem;
+  min-width: 0;
+}
+.hero .eyebrow {
+  color: var(--lavender);
+}
+.hero h1 {
+  font: 400 clamp(4.5rem, min(8.4vw, 14svh), 8rem)/0.95 var(--serif);
+  letter-spacing: -0.045em;
+  margin: 1.6rem 0;
+}
+.hero h1 em {
+  display: block;
+  font-weight: 400;
+  color: var(--lavender);
+}
+.hero h1 em span {
+  color: var(--light);
+}
+.hero-intro {
+  color: var(--light);
+  font-size: clamp(1.03rem, 1.24vw, 1.23rem);
+  line-height: 1.6;
+  max-width: 26.4rem;
+  text-wrap: pretty;
+}
+.hero .actions {
+  margin-top: 1.75rem;
+}
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted-light);
+  font-size: 0.875rem;
+  margin-top: 1.5rem;
+}
+.location svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.home-page,
+.about-page,
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  background: var(--plum-deep);
+}
+.home-page > .hero,
+.about-page > .hero,
+.contact-page > .hero {
+  flex: 1;
+  display: grid;
+  align-items: center;
+}
+
+.route-hero h1 {
+  font-size: clamp(3.6rem, 6vw, 6.4rem);
+  line-height: 1;
+  margin-block: 1rem 1.5rem;
+}
+.route-hero .hero-grid {
+  min-height: 25rem;
+  padding-block: 2.5rem;
+}
+.route-hero .particle-field {
+  max-width: min(26rem, 52svh);
+}
+
+@media (max-width: 42rem) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .hero-copy {
+    padding: 0;
+  }
+  .hero h1 em {
+    display: inline;
+  }
+  .hero .actions {
+    margin-top: 1.2rem;
+  }
+  .location {
+    margin-top: 1rem;
+  }
+  .route-hero .hero-grid {
+    min-height: auto;
+    padding-block: 2rem;
+  }
+  .route-hero h1 {
+    font-size: clamp(3rem, 12vw, 4.5rem);
+  }
+  .route-hero .particle-field {
+    width: min(68%, 16rem);
+  }
+}
+
+@media (max-height: 600px) and (min-width: 42rem) {
+  .hero h1 {
+    font-size: 4rem;
+    margin-block: 1rem;
+  }
+  .hero .actions,
+  .location {
+    margin-top: 1rem;
+  }
+}
+
+.home-page > .hero {
+  min-height: 0;
+  align-items: stretch;
+  overflow: visible;
+}
+
+.home-page .hero-grid {
+  min-height: 0;
+  padding-block: clamp(1rem, 3svh, 2rem);
+}
+
+.home-page .hero-copy {
+  padding-block: 0;
+}
+
+.home-page h1 {
+  font-size: clamp(3.8rem, min(8.4vw, 14svh), 8rem);
+  margin-block: clamp(0.6rem, 2.5svh, 1.6rem);
+}
+
+.home-page .particle-field {
+  max-width: min(34rem, 62svh, max(7rem, calc(100svh - 14rem)));
+}
+
+@media (max-width: 42rem) {
+  .home-page .hero-grid {
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 0.5rem;
+    padding-block: 1rem;
+  }
+
+  .home-page h1 {
+    font-size: clamp(3rem, 14vw, 4.8rem);
+    margin-block: 0.7rem;
+  }
+
+  .home-page .hero-intro {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .home-page .actions {
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .home-page .button {
+    min-height: 2.75rem;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .home-page .location {
+    margin-top: 0.75rem;
+  }
+
+  .home-page .particle-field {
+    width: min(64%, 25svh);
+    align-self: center;
+  }
+}
+
+@media (max-height: 600px) {
+  .home-page .hero-grid {
+    padding-block: 0.5rem;
+  }
+
+  .home-page h1 {
+    font-size: clamp(2.7rem, 9svh, 4rem);
+    margin-block: 0.4rem;
+  }
+
+  .home-page h1 em {
+    display: inline;
+  }
+
+  .home-page .hero-intro {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .home-page .actions {
+    margin-top: 0.65rem;
+  }
+
+  .home-page .button {
+    min-height: 2.75rem;
+    padding-block: 0.6rem;
+  }
+
+  .home-page .location {
+    margin-top: 0.5rem;
+  }
+}

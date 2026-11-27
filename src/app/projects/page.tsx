@@ -1,3 +1,4 @@
+import { PageMain } from '../../components/PageMain';
 import type { Metadata } from 'next';
 import { RouteHero } from '../../components/RouteHero';
 import { SelectedWork } from '../../components/SelectedWork';
@@ -12,10 +13,7 @@ export default function ProjectsPage() {
   const { work } = portfolio;
 
   return (
-    <main
-      id="main-content"
-      tabIndex={-1}
-    >
+    <PageMain>
       <RouteHero
         label={work.label}
         title={work.heading}
@@ -24,6 +22,6 @@ export default function ProjectsPage() {
         <p className="hero-intro">{work.description}</p>
       </RouteHero>
       <SelectedWork />
-    </main>
+    </PageMain>
   );
 }
