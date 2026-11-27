@@ -16,11 +16,14 @@ async function checkReflow(page: Page) {
     footer: document.querySelector('footer')!.getBoundingClientRect().top,
     footerBottom: document.querySelector('footer')!.getBoundingClientRect().bottom,
     viewportHeight: window.innerHeight,
+    bodyBackground: getComputedStyle(document.body).backgroundColor,
+    footerBackground: getComputedStyle(document.querySelector('footer')!).backgroundColor,
     heading: document.querySelector('h1')!.getBoundingClientRect().bottom,
   }));
   expect(layout.content, 'Horizontal overflow').toBeLessThanOrEqual(layout.width + 1);
   expect(layout.footer, 'Footer overlaps main').toBeGreaterThanOrEqual(layout.main - 1);
   expect(layout.footerBottom, 'Footer leaves a gap below the viewport').toBeGreaterThanOrEqual(layout.viewportHeight - 1);
+  expect(layout.bodyBackground, 'Page backdrop differs from the footer').toBe(layout.footerBackground);
   expect(layout.heading, 'Heading escapes main').toBeLessThanOrEqual(layout.main + 1);
 }
 async function checkHomeViewport(page: Page) {
