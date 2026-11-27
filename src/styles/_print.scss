@@ -1,0 +1,47 @@
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+  body {
+    display: block;
+    min-height: 0;
+    background: white;
+    color: black;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  .header,
+  .footer,
+  .particle-field {
+    display: none;
+  }
+  .shell {
+    width: 100%;
+  }
+  .resume-shell {
+    padding: 0;
+  }
+  .resume .hero {
+    color: black;
+    background: none;
+  }
+  .resume .hero::before {
+    display: none;
+  }
+  .resume .hero-grid {
+    display: block;
+    min-height: 0;
+    padding: 0 0 0.6rem;
+  }
+  .resume .hero .eyebrow,
+  .resume .hero-intro {
+    color: black;
+  }
+  .resume .hero h1 {
+    font-size: 28pt;
+    margin: 0.2rem 0;
+  }
+  .resume a {
+    color: black;
+  }
+}

@@ -1,0 +1,77 @@
+.particle-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: min(34rem, 62svh);
+  justify-self: end;
+}
+.particle-surface {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+.particle-surface canvas,
+.particle-mask {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.particle-mask {
+  mask: url('/particle-field.png') center / contain no-repeat;
+  background: linear-gradient(
+    145deg,
+    var(--particle-light) 0%,
+    var(--particle) 52%,
+    var(--particle-light) 85%
+  );
+}
+.particle-surface canvas {
+  opacity: 0;
+}
+.particle-field[data-active='true'] {
+  .particle-mask {
+    opacity: 0;
+  }
+  canvas {
+    opacity: 1;
+  }
+}
+
+@each $variant in orbit, lattice, wave, helix {
+  .particle-field[data-variant='#{$variant}'] .particle-mask {
+    mask-image: url('/particle-#{$variant}.png');
+  }
+}
+
+.motion-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 12rem);
+  gap: 0.42rem;
+  min-height: 2.75rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--light-line);
+  color: var(--light);
+  background: var(--plum-deep);
+  font-size: 0.875rem;
+}
+.motion-control svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+.motion-control:hover {
+  background: var(--plum-soft);
+}
+
+@media (max-width: 42rem) {
+  .particle-field {
+    width: min(86%, 17.25rem);
+    justify-self: center;
+  }
+}

@@ -113,7 +113,16 @@ test('mobile menu supports pointer, keyboard and Escape', async ({ page }) => {
   await expect(page).toHaveURL(/\/about\/$/);
   await expect(open).toHaveAttribute('aria-expanded', 'false');
 });
-test('animation control aligns with footer and supports pause/resume', async ({ page }, info) => {
+async function checkPlaybackPosition(page: Page) {
+  const field = page.locator('.particle-field');
+  const art = await field.locator('.particle-surface').boundingBox();
+  const button = await field.getByRole('button').boundingBox();
+  if (!art || !button) throw new Error('Expected visible artwork and playback control');
+  expect(button.y).toBeGreaterThanOrEqual(art.y + art.height);
+  expect(Math.abs(button.x + button.width / 2 - art.x - art.width / 2)).toBeLessThanOrEqual(1);
+}
+
+test('animation control stays centered below the artwork and supports pause/resume', async ({ page }, info) => {
   test.setTimeout(180_000);
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   for (const viewport of viewports) {
@@ -126,30 +135,12 @@ test('animation control aligns with footer and supports pause/resume', async ({ 
       continue;
     }
     const pause = page.getByRole('button', { name: 'Pause animation' });
-    async function checkMobileCenter() {
-      if (viewport.width > 672) return;
-      const offset = await page.locator('footer button').evaluate(button => {
-        const rect = button.getBoundingClientRect();
-        return Math.abs(rect.left + rect.width / 2 - document.documentElement.clientWidth / 2);
-      });
-      expect(offset).toBeLessThanOrEqual(1);
-    }
     await expect(pause).toBeVisible();
-    await checkMobileCenter();
-    await expect(page.locator('footer button')).toHaveCount(1);
-    const bounds = await page.locator('footer .shell').evaluate(el => {
-      const row = el.getBoundingClientRect();
-      const b = el.querySelector('button')!.getBoundingClientRect();
-      const labels = [...el.querySelectorAll(':scope > span')].map(n => n.getBoundingClientRect());
-      return { contained: b.top >= row.top && b.bottom <= row.bottom,
-        offsets: labels.filter(r => r.top < b.bottom && r.bottom > b.top).map(r => Math.abs((r.top + r.bottom - b.top - b.bottom) / 2)) };
-    });
-    expect(bounds.contained).toBe(true);
-    for (const offset of bounds.offsets) expect(offset).toBeLessThanOrEqual(1);
+    await checkPlaybackPosition(page);
     await pause.focus();
     await page.keyboard.press('Enter');
     await expect(page.getByRole('button', { name: 'Resume animation' })).toBeFocused();
-    await checkMobileCenter();
+    await checkPlaybackPosition(page);
     await page.keyboard.press('Space');
     await expect(pause).toBeFocused();
     await checkReflow(page);
@@ -157,7 +148,7 @@ test('animation control aligns with footer and supports pause/resume', async ({ 
     await page.screenshot({ path: info.outputPath(`motion-${viewport.width}.png`), fullPage: true });
   }
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await expect(page.locator('footer button')).toHaveCount(0);
+  await expect(page.locator('.particle-field button')).toHaveCount(0);
 });
 test('each route starts its own art and accepts a pointer and playback input', async ({ page }) => {
   for (const [index, route] of routes.entries()) {
@@ -169,7 +160,8 @@ test('each route starts its own art and accepts a pointer and playback input', a
       continue;
     }
     await expect(field).toHaveAttribute('data-active', 'true');
-    await field.hover();
+    await checkPlaybackPosition(page);
+    await field.locator('.particle-surface').hover();
     await page.getByRole('button', { name: 'Pause animation' }).click();
     await page.getByRole('button', { name: 'Resume animation' }).click();
     await expect(page.getByRole('button', { name: 'Pause animation' })).toBeVisible();

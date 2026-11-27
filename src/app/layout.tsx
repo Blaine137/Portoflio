@@ -25,11 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         {children}
         <footer className="footer">
-          <div className="shell">
-            <span>{portfolio.profile.name}</span>
-            <span>{portfolio.profile.location}</span>
-            <div id="motion-controls" />
-          </div>
+          <small>© {new Date().getFullYear()} {portfolio.profile.name}</small>
         </footer>
       </body>
     </html>

@@ -46,6 +46,7 @@ it('renders separate, accessible routes without JavaScript and keeps personal co
     expect(doc.querySelector('main#main-content')).not.toBeNull();
     expect(doc.querySelector('a[href^="tel:"]')).toBeNull();
     expect(doc.querySelectorAll('.particle-field')).toHaveLength(1);
+    expect(doc.querySelector('footer')!.textContent).toBe(`© ${new Date().getFullYear()} ${portfolio.profile.name}`);
     return doc;
   });
 

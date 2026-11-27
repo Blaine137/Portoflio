@@ -1,0 +1,42 @@
+.portrait-frame {
+  width: 7.5rem;
+  flex: none;
+  aspect-ratio: 0.86;
+  padding: 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--wash);
+  transform: rotate(-2.5deg);
+}
+.portrait-frame img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+  border-radius: 0.18rem;
+}
+
+.personal-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+.personal-copy {
+  min-width: 0;
+  flex: 1 1 12rem;
+  color: var(--light);
+  font-size: 1.05rem;
+}
+.personal-copy p + p {
+  margin-top: 1rem;
+}
+
+@media (max-width: 42rem) {
+  .portrait-frame {
+    aspect-ratio: 1.02;
+  }
+  .personal-intro {
+    flex-direction: column;
+  }
+}

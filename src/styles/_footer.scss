@@ -1,0 +1,10 @@
+.footer {
+  border-top: 1px solid var(--light-line);
+  padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
+  color: var(--muted-light);
+  text-align: center;
+
+  small {
+    font-size: 0.875rem;
+  }
+}

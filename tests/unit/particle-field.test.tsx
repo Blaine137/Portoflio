@@ -25,7 +25,6 @@ const subject = () =>
   render(
     <section>
       <ParticleField />
-      <div id="motion-controls" />
     </section>,
   );
 
@@ -102,8 +101,8 @@ it('shows controls after the worker draws and recovers once if that worker fails
   expect(startParticleScene).toHaveBeenCalledOnce();
 });
 
-it('hydrates server markup before adding the motion control to its footer slot', async () => {
-  const markup = <><section><ParticleField /></section><footer><div id="motion-controls" /></footer></>;
+it('hydrates the artwork before adding its playback button beneath the surface', async () => {
+  const markup = <section><ParticleField /></section>;
   const container = document.createElement('div');
   container.innerHTML = renderToString(markup);
   document.body.appendChild(container);
@@ -115,8 +114,8 @@ it('hydrates server markup before adding the motion control to its footer slot',
     await act(async () => {
       root = hydrateRoot(container, markup, { onRecoverableError: recoverable });
     });
-    await screen.findByRole('button', { name: 'Pause animation' });
-    expect(container.querySelector('footer button')).not.toBeNull();
+    const button = await screen.findByRole('button', { name: 'Pause animation' });
+    expect(container.querySelector('.particle-surface + button')).toBe(button);
     expect(errors).not.toHaveBeenCalled();
     expect(recoverable).not.toHaveBeenCalled();
   } finally {
